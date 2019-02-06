@@ -12,38 +12,18 @@ public class TriangleUtilities {
     
     public static String getTriangle(int numberOfRows) {
        StringBuilder triangle = new StringBuilder();
-       int row = 1;
        for (int i = 1; i <= numberOfRows; i++) {
-           for (int j = 0; j<i; j ++) {
-             triangle.append("*");
-           }
+           triangle.append(getRow(i));
            triangle.append("\n");
        }
        return triangle.toString();
     }
 
-
     public static String getSmallTriangle() {
-       StringBuilder triangle = new StringBuilder();
-       int row = 1;
-       for (int i = 1; i <= 4; i++) {
-           for (int j = 0; j<i; j ++) {
-             triangle.append("*");
-           }
-           triangle.append("\n");
-       }
-       return triangle.toString();
+       return getTriangle(4);
     }
 
     public static String getLargeTriangle() {
-               StringBuilder triangle = new StringBuilder();
-       int row = 1;
-       for (int i = 1; i <= 9; i++) {
-           for (int j = 0; j<i; j ++) {
-             triangle.append("*");
-           }
-           triangle.append("\n");
-       }
-       return triangle.toString();
+        return getTriangle(9);
     }
 }

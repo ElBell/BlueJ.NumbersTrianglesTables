@@ -4,56 +4,38 @@
 public class NumberUtilities {
 
     public static String getRange(int stop) {
-       StringBuilder stopRange = new StringBuilder(stop);
-       for (int i = 0; i<stop; i++) {
-         stopRange.append(i);
-       }
-       return stopRange.toString();
+        return getRange(0, stop);
     }
 
     public static String getRange(int start, int stop) {
-       StringBuilder startStopRange = new StringBuilder(stop-start);
-       for (int i = start; i<stop; i++) {
-         startStopRange.append(i);
-       }
-       return startStopRange.toString();
+      return getRange(start, stop, 1);
     }
 
-
     public static String getRange(int start, int stop, int step) {
-       StringBuilder startStopStepRange = new StringBuilder(stop-start);
+       StringBuilder range = new StringBuilder(stop-start);
        for (int i = start; i<stop; i += step) {
-         startStopStepRange.append(i);
+         range.append(i);
        }
-       return startStopStepRange.toString();
+       return range.toString();
     }
 
     public static String getEvenNumbers(int start, int stop) {
-       StringBuilder evenRange = new StringBuilder(stop-start);
-       if(start%2 != 0) {start++;}
-        for (int i = start; i<stop; i += 2) {
-         evenRange.append(i);
-       }
-       return evenRange.toString();
+       return start%2 != 0 ? getRange(start +1, stop, 2) : getRange(start, stop, 2);
     }
 
 
     public static String getOddNumbers(int start, int stop) {
-       StringBuilder oddRange = new StringBuilder(stop-start);
-       if(start%2 == 0) {start++;}
-        for (int i = start; i<stop; i += 2) {
-         oddRange.append(i);
-       }
-       return oddRange.toString();
+        return start%2 == 0 ? getRange(start +1, stop, 2) : getRange(start, stop, 2);
     }
 
 
     public static String getExponentiations(int start, int stop, int exponent) {
-       StringBuilder expoRange = new StringBuilder(stop-start);
+
+      StringBuilder expoRange = new StringBuilder(stop-start);
         for (int i = start; i<=stop; i++) {
-         long expo = Math.round(Math.pow(i, exponent)); 
-         expoRange.append(expo);
+             long expo = Math.round(Math.pow(i, exponent)); 
+             expoRange.append(expo);
        }
        return expoRange.toString();
-    }
+     }
 }
