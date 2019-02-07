@@ -10,17 +10,26 @@ public class TableUtilities {
     }
 
     public static String getMultiplicationTable(int tableSize) {
-        int tableSizePassed = tableSize;
+        String table = "";
+        for(int i = 1; i <= tableSize; i++) {
+            for(int j = 1; j <= tableSize; j++) {
+                table += String.format("%3d |", i*j);
+            }
+            table += String.format("\n");
+         }
+        System.out.print(table);
+        return table;
+        /*int tableSizePassed = tableSize;
         StringBuilder smallTable = new StringBuilder();
         Formatter formattedTable = new Formatter(smallTable);
         for(int i = 1 ; i <= tableSizePassed; i++) {
             for(int j = 1; j <= tableSizePassed ; j++) {
                 formattedTable.format("%3d |", i*j);
-                System.out.print(i*j);
              }
             formattedTable.format("\n");
          }
         return smallTable.toString();
-    }
+        */
+     }
 }
 
